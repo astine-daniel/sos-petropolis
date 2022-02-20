@@ -1,12 +1,20 @@
 /** @type {import('next').NextConfig} */
 
+const withPWA = require('next-pwa')
+const runtimeCaching = require('next-pwa/cache')
+
 const isProd = process.env.NODE_ENV === 'production'
-const withPlugins = require('next-compose-plugins')
-const offline = require('next-offline')
 
 const nextConfig = {
   reactStrictMode: true,
   assetPrefix: isProd ? '/sos-petropolis/' : '',
 }
 
-module.exports = withPlugins([[offline]], nextConfig)
+module.exports = withPWA({
+  pwa: {
+    dest: 'public',
+    runtimeCaching,
+  },
+  reactStrictMode: true,
+  assetPrefix: isProd ? '/sos-petropolis/' : '',
+})
