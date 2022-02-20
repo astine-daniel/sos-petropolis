@@ -1,4 +1,3 @@
-
 name: Deploy to Github Pages
 
 on:
@@ -18,14 +17,21 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: "lts/*"
-          cache: "npm"
+          node-version: 'lts/*'
+          cache: 'yarn'
 
-      - name: Build
-        run: |
-          npm i
-          npm run build
-          npm run export
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: install
+
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: build
+
+      - uses: borales/actions-yarn@v2.3.0
+        with:
+          cmd: export
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3.7.3
         with:
