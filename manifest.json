@@ -2,11 +2,12 @@
 	"short_name": "SOS Petrópolis",
 	"name": "SOS Petrópolis",
 	"lang": "pt",
+	"scope": "/",
 	"start_url": "/",
 	"background_color": "#000000",
 	"theme_color": "#000000",
 	"dir": "ltr",
-	"display": "standalone",
+	"display": "fullscreen",
 	"orientation": "portrait",
 	"icons": [
 		{
@@ -75,5 +76,5 @@
 			"sizes": "16x16"
 		}
 	],
-	"prefer_related_applications": false
+	"splash_pages": null
 }
